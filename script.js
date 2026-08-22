@@ -1,106 +1,110 @@
-const root = document.documentElement;
-const themeToggle = document.querySelector('.theme-toggle');
-const themeColor = document.querySelector('meta[name="theme-color"]');
+document.addEventListener('DOMContentLoaded', () => {
+  const root = document.documentElement;
+  const themeToggle = document.querySelector('.theme-toggle');
+  const themeColor = document.querySelector('meta[name="theme-color"]');
 
-function updateThemeControls() {
-  const isDark = root.dataset.theme === 'dark';
-  const label = `Switch to ${isDark ? 'light' : 'dark'} mode`;
-  themeToggle?.setAttribute('aria-label', label);
-  themeToggle?.setAttribute('title', label);
-  themeColor?.setAttribute('content', isDark ? '#050506' : '#f5f5f7');
-}
-
-themeToggle?.addEventListener('click', () => {
-  root.dataset.theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
-  try {
-    localStorage.setItem('pi-webui-theme', root.dataset.theme);
-  } catch {
-    // The active theme still works when storage is unavailable.
+  // 1. Theme Management
+  function updateTheme() {
+    const isDark = root.dataset.theme === 'dark';
+    themeColor?.setAttribute('content', isDark ? '#070709' : '#f8f9fa');
+    themeToggle?.setAttribute('aria-label', `Switch to ${isDark ? 'light' : 'dark'} mode`);
   }
-  updateThemeControls();
-});
 
-updateThemeControls();
-
-const siteHeader = document.querySelector('.site-header');
-function updateHeader() {
-  siteHeader?.classList.toggle('is-scrolled', window.scrollY > 12);
-}
-window.addEventListener('scroll', updateHeader, { passive: true });
-updateHeader();
-
-const revealElements = document.querySelectorAll('.section-heading, .feature-card, .screenshot-card, .start-section');
-if (matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) {
-  revealElements.forEach((element) => element.classList.add('is-visible'));
-} else {
-  const revealObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
-      entry.target.classList.add('is-visible');
-      observer.unobserve(entry.target);
-    });
-  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
-
-  revealElements.forEach((element) => {
-    element.classList.add('reveal');
-    revealObserver.observe(element);
+  themeToggle?.addEventListener('click', () => {
+    root.dataset.theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+    try {
+      localStorage.setItem('pi-webui-theme', root.dataset.theme);
+    } catch {}
+    updateTheme();
   });
-}
+  updateTheme();
 
-const copyButton = document.querySelector('[data-copy]');
-const copyStatus = document.querySelector('.copy-status');
+  // 2. Command Box Launcher Tabs (npm / npx)
+  const launcherTabs = document.querySelectorAll('.launcher-tab');
+  const cliCode = document.getElementById('cli-code');
+  const mainCopyBtn = document.getElementById('main-copy-btn');
 
-async function copyInstallCommand() {
-  const command = copyButton?.dataset.copy;
-  if (!command) return;
+  launcherTabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      launcherTabs.forEach((t) => t.classList.remove('active'));
+      tab.classList.add('active');
+      const cmd = tab.dataset.cmd;
+      if (cliCode) cliCode.textContent = cmd;
+      if (mainCopyBtn) mainCopyBtn.dataset.copy = cmd;
+    });
+  });
 
-  try {
-    await navigator.clipboard.writeText(command);
-  } catch {
-    const textArea = document.createElement('textarea');
-    textArea.value = command;
-    textArea.setAttribute('readonly', '');
-    textArea.style.position = 'fixed';
-    textArea.style.opacity = '0';
-    document.body.append(textArea);
-    textArea.select();
-    document.execCommand('copy');
-    textArea.remove();
+  // 3. Generic Copy Button Functionality
+  document.querySelectorAll('.copy-button').forEach((btn) => {
+    btn.addEventListener('click', async () => {
+      const textToCopy = btn.dataset.copy || cliCode?.textContent || '';
+      try {
+        await navigator.clipboard.writeText(textToCopy);
+        const originalHtml = btn.innerHTML;
+        btn.innerHTML = '<span>✓ Copied!</span>';
+        btn.style.borderColor = 'var(--green)';
+        setTimeout(() => {
+          btn.innerHTML = originalHtml;
+          btn.style.borderColor = '';
+        }, 2000);
+      } catch (err) {
+        console.error('Failed to copy', err);
+      }
+    });
+  });
+
+  // 4. Interactive Showcase Switcher
+  const showcaseTabs = document.querySelectorAll('.showcase-tab');
+  const showcaseImg = document.getElementById('showcase-img');
+  const showcaseTitle = document.getElementById('showcase-title');
+  const showcaseDesc = document.getElementById('showcase-desc');
+  const zoomHint = document.querySelector('.zoom-hint');
+
+  showcaseTabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      showcaseTabs.forEach((t) => t.classList.remove('active'));
+      tab.classList.add('active');
+
+      const imgSrc = tab.dataset.img;
+      const title = tab.dataset.title;
+      const desc = tab.dataset.desc;
+
+      if (showcaseImg && imgSrc) {
+        showcaseImg.src = imgSrc;
+        showcaseImg.alt = title;
+      }
+      if (showcaseTitle) showcaseTitle.textContent = title;
+      if (showcaseDesc) showcaseDesc.textContent = desc;
+      if (zoomHint) {
+        zoomHint.dataset.lightbox = imgSrc;
+        zoomHint.dataset.caption = title;
+      }
+    });
+  });
+
+  // 5. Lightbox Modal Controller
+  const dialog = document.getElementById('lightbox-dialog');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const lightboxCaption = document.getElementById('lightbox-caption');
+  const closeBtn = document.querySelector('.lightbox-close');
+
+  function openLightbox(src, caption) {
+    if (!dialog || !lightboxImg) return;
+    lightboxImg.src = src;
+    if (lightboxCaption) lightboxCaption.textContent = caption || '';
+    dialog.showModal();
   }
 
-  copyButton.textContent = 'Copied';
-  copyStatus.textContent = 'Install command copied to clipboard.';
-  window.setTimeout(() => {
-    copyButton.textContent = 'Copy';
-    copyStatus.textContent = '';
-  }, 2000);
-}
+  document.querySelectorAll('[data-lightbox]').forEach((el) => {
+    el.addEventListener('click', () => {
+      const src = el.dataset.lightbox || el.getAttribute('src');
+      const caption = el.dataset.caption || el.getAttribute('alt') || '';
+      openLightbox(src, caption);
+    });
+  });
 
-copyButton?.addEventListener('click', copyInstallCommand);
-
-const lightbox = document.querySelector('.lightbox');
-const lightboxImage = lightbox?.querySelector('img');
-const lightboxCaption = lightbox?.querySelector('p');
-const lightboxClose = lightbox?.querySelector('.lightbox-close');
-
-function closeLightbox() {
-  if (lightbox?.open) lightbox.close();
-}
-
-function openLightbox(button) {
-  if (!lightbox || !lightboxImage || !lightboxCaption) return;
-
-  lightboxImage.src = button.dataset.lightbox;
-  lightboxImage.alt = button.querySelector('img')?.alt ?? '';
-  lightboxCaption.textContent = button.dataset.caption ?? '';
-  lightbox.showModal();
-}
-
-document.querySelectorAll('[data-lightbox]').forEach((button) => {
-  button.addEventListener('click', () => openLightbox(button));
-});
-
-lightboxClose?.addEventListener('click', closeLightbox);
-lightbox?.addEventListener('click', (event) => {
-  if (event.target === lightbox) closeLightbox();
+  closeBtn?.addEventListener('click', () => dialog?.close());
+  dialog?.addEventListener('click', (e) => {
+    if (e.target === dialog) dialog.close();
+  });
 });
