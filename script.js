@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   themeToggle?.addEventListener('click', () => {
     root.dataset.theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
     try {
-      localStorage.setItem('pi-webui-theme', root.dataset.theme);
+      localStorage.setItem('pi-cloud-theme', root.dataset.theme);
     } catch {}
     updateTheme();
   });

@@ -4,12 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#070709" />
-    <meta name="description" content="Pi WebUI is a self-hosted, mobile-friendly workspace for the Pi coding agent." />
-    <title>Pi WebUI — The Complete Workspace for your Coding Agent</title>
+    <meta name="description" content="Pi Cloud is a self-hosted, mobile-friendly workspace for the Pi coding agent." />
+    <title>Pi Cloud — The Complete Workspace for Your Coding Agent</title>
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
     <script>
       let savedTheme;
-      try { savedTheme = localStorage.getItem('pi-webui-theme'); } catch {}
+      try { savedTheme = localStorage.getItem('pi-cloud-theme'); } catch {}
       document.documentElement.dataset.theme = savedTheme || (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
       document.documentElement.classList.add('js');
     </script>
@@ -21,9 +21,9 @@
 
     <!-- Navigation Header -->
     <header class="site-header">
-      <a class="brand" href="#top" aria-label="Pi WebUI home">
+      <a class="brand" href="#top" aria-label="Pi Cloud home">
         <span class="brand-mark" aria-hidden="true">&gt;_</span>
-        <span class="brand-text">Pi WebUI</span>
+        <span class="brand-text">Pi Cloud</span>
       </a>
       <nav class="nav-links" aria-label="Main navigation">
         <a href="#showcase">Showcase</a>
@@ -32,8 +32,8 @@
         <a href="#product-overview">Overview</a>
         <a href="#complete-tour">Full tour</a>
         <a href="#get-started">Quickstart</a>
-        <a class="nav-link-subtle" href="https://github.com/xianzhon/pi-webui/blob/main/README.md" target="_blank" rel="noreferrer">Docs ↗</a>
-        <a class="nav-github-btn" href="https://github.com/xianzhon/pi-webui" target="_blank" rel="noreferrer">
+        <a class="nav-link-subtle" href="https://github.com/xianzhon/pi-cloud/blob/main/docs/README.md" target="_blank" rel="noreferrer">Docs ↗</a>
+        <a class="nav-github-btn" href="https://github.com/xianzhon/pi-cloud" target="_blank" rel="noreferrer">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
           <span>Star</span>
         </a>
@@ -54,12 +54,12 @@
           </div>
           <h1>A complete workspace for your <span class="gradient-text">coding agent.</span></h1>
           <p class="hero-lede">
-            Pi WebUI gives the Pi coding agent a persistent, multi-device workspace for conversations, code, terminals, tasks, memory, and Git workflows.
+            Pi Cloud gives the Pi coding agent a persistent, multi-device workspace for conversations, code, terminals, tasks, memory, Git workflows, and rich document review.
           </p>
 
           <div class="hero-actions">
             <a class="button button-primary" href="#get-started">Get Started Free <span>→</span></a>
-            <a class="button button-secondary" href="https://github.com/xianzhon/pi-webui" target="_blank" rel="noreferrer">
+            <a class="button button-secondary" href="https://github.com/xianzhon/pi-cloud" target="_blank" rel="noreferrer">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
               GitHub Repository
             </a>
@@ -69,14 +69,14 @@
           <div class="terminal-launcher">
             <div class="launcher-header">
               <div class="launcher-tabs">
-                <button class="launcher-tab active" data-cmd="npm install -g @xianzhon/pi-webui && pi-webui">npm</button>
-                <button class="launcher-tab" data-cmd="npx @xianzhon/pi-webui@latest">npx</button>
+                <button class="launcher-tab active" data-cmd="npm install -g pi-cloud &amp;&amp; pi-cloud">npm</button>
+                <button class="launcher-tab" data-cmd="npx pi-cloud@latest">npx</button>
               </div>
               <span class="launcher-tag">Documented install paths</span>
             </div>
             <div class="launcher-body">
               <span class="prompt-sym">$</span>
-              <code id="cli-code">npm install -g @xianzhon/pi-webui &amp;&amp; pi-webui</code>
+              <code id="cli-code">npm install -g pi-cloud &amp;&amp; pi-cloud</code>
               <button class="copy-button" id="main-copy-btn" type="button" aria-label="Copy command">
                 <svg class="copy-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
                 <span>Copy</span>
@@ -90,11 +90,11 @@
           <div class="video-container">
             <div class="window-chrome">
               <div class="traffic-lights"><span class="tl-red"></span><span class="tl-yellow"></span><span class="tl-green"></span></div>
-              <div class="window-title">Pi WebUI · Git Bugfix &amp; Worktree Workflow</div>
+              <div class="window-title">Pi Cloud · Git Bugfix &amp; Worktree Workflow</div>
               <div class="window-spacer"></div>
             </div>
             <figure class="screenshot-frame">
-              <video class="hero-demo" controls playsinline preload="metadata" poster="assets/screenshots/workspace-overview.webp" aria-label="Pi WebUI demo">
+              <video class="hero-demo" controls playsinline preload="metadata" poster="assets/screenshots/workspace-overview.webp" aria-label="Pi Cloud demo">
                 <source src="assets/videos/demo-git-bugfix-workflow.mp4" type="video/mp4" />
                 Your browser does not support video. <a href="assets/videos/demo-git-bugfix-workflow.mp4">Download demo video</a>.
               </video>
@@ -116,24 +116,24 @@
         <div class="section-heading text-center">
           <p class="eyebrow">Interactive Overview</p>
           <h2>Explore the Workspace</h2>
-          <p class="section-desc">Click through key subsystems to see how Pi WebUI orchestrates complex agent loops.</p>
+          <p class="section-desc">Click through key subsystems to see how Pi Cloud orchestrates complex agent workflows.</p>
         </div>
 
         <div class="showcase-card">
           <div class="showcase-tabs">
-            <button class="showcase-tab active" data-img="assets/screenshots/workspace-overview.webp" data-title="3-Panel Unified Workspace" data-desc="Chat in the center, directory tree and session history on the left, file editor and diff previews on the right.">01. Workspace</button>
-            <button class="showcase-tab" data-img="assets/screenshots/sessions-worktree.webp" data-title="Isolated Git Worktrees" data-desc="Never let an experimental agent break your dirty working tree. Spin up clean worktrees with custom branch bases on demand.">02. Worktrees</button>
-            <button class="showcase-tab" data-img="assets/screenshots/task-queue-polished-prompt.webp" data-title="Async Task Queue" data-desc="Capture ideas during busy sessions, run AI-assisted prompt polish, and schedule them for background execution.">03. Tasks</button>
-            <button class="showcase-tab" data-img="assets/screenshots/memory-global.webp" data-title="Durable Memory System" data-desc="Persist architectural decisions, project conventions, and team review styles across chats and profiles.">04. Memory</button>
-            <button class="showcase-tab" data-img="assets/screenshots/settings-security-audit-log.webp" data-title="Audit Logs &amp; 2FA" data-desc="Comprehensive audit logs and two-factor authentication ensure safe remote access over personal gateways.">05. Security</button>
+            <button class="showcase-tab active" data-img="assets/screenshots/workspace-overview.webp" data-title="3-Panel Unified Workspace" data-desc="Chat in the center, browse files and session history on the left, and edit code, inspect diffs, or preview documents on the right.">01. Workspace</button>
+            <button class="showcase-tab" data-img="assets/screenshots/sessions-worktree.webp" data-title="Git-Native Agent Workflows" data-desc="Use isolated worktrees, review changed files and commit history, inspect split diffs, and move from agent output to a pull request.">02. Git</button>
+            <button class="showcase-tab" data-img="assets/screenshots/task-queue-polished-prompt.webp" data-title="Sessions &amp; Async Tasks" data-desc="Capture follow-up work, polish prompts with AI, choose a profile and skill preset, then run tasks without derailing the current session.">03. Tasks</button>
+            <button class="showcase-tab" data-img="assets/screenshots/memory-global.webp" data-title="Durable, Adaptive Memory" data-desc="Keep project decisions and global preferences across sessions, with automatic extraction, adaptive recall, and matched pinned memories.">04. Memory</button>
+            <button class="showcase-tab" data-img="assets/screenshots/settings-security-audit-log.webp" data-title="Secure Self-Hosted Access" data-desc="Protect remote access with password and TOTP authentication, renewable sessions, production cookies, and auditable activity.">05. Security</button>
           </div>
           <div class="showcase-display">
             <div class="showcase-meta">
               <h3 id="showcase-title">3-Panel Unified Workspace</h3>
-              <p id="showcase-desc">Chat in the center, directory tree and session history on the left, file editor and diff previews on the right.</p>
+              <p id="showcase-desc">Chat in the center, browse files and session history on the left, and edit code, inspect diffs, or preview documents on the right.</p>
             </div>
             <div class="showcase-viewport">
-              <img id="showcase-img" src="assets/screenshots/workspace-overview.webp" alt="Pi WebUI Workspace screenshot" class="interactive-img" />
+              <img id="showcase-img" src="assets/screenshots/workspace-overview.webp" alt="Pi Cloud workspace screenshot" class="interactive-img" />
               <button class="zoom-hint" type="button" data-lightbox="assets/screenshots/workspace-overview.webp" data-caption="3-Panel Unified Workspace">Click to expand</button>
             </div>
           </div>
@@ -153,8 +153,8 @@
           <article class="feature-box">
             <div class="feature-box-content">
               <span class="box-tag">Core UI</span>
-              <h3>Three-Panel Workspace</h3>
-              <p>Keep your conversation grounded in the repository. Full multi-tab terminal, live Markdown renderer, syntax-highlighted code editor, and file inspector in one window.</p>
+              <h3>Workspace &amp; Rich Previews</h3>
+              <p>Keep the conversation grounded in the repository with Monaco editing and an embedded terminal. Preview Markdown with outlines, Mermaid and HTML, inspect archives, and browse with file-type icons.</p>
               <div class="feature-shot-wrap">
                 <img src="assets/screenshots/workspace-terminal-and-diff.webp" alt="Terminal and diff viewer" loading="lazy" class="box-thumb" data-lightbox="assets/screenshots/workspace-terminal-and-diff.webp" data-caption="Integrated Terminal &amp; Diff Viewer" />
               </div>
@@ -165,8 +165,8 @@
           <article class="feature-box">
             <div class="feature-box-content">
               <span class="box-tag">Git Native</span>
-              <h3>Worktree Isolation</h3>
-              <p>Test speculative refactors in isolated Git worktrees without touching your active branch or unstaged changes. Copy uncommitted config files automatically.</p>
+              <h3>Git Changes &amp; History</h3>
+              <p>Work safely in isolated worktrees, navigate changed files, and inspect paginated commit history. Review unified or split diffs with per-file statistics before committing staged work or opening a pull request.</p>
               <div class="feature-shot-wrap">
                 <img src="assets/screenshots/sessions-create.webp" alt="Session Creation Dialog" loading="lazy" class="box-thumb" data-lightbox="assets/screenshots/sessions-create.webp" data-caption="Session Creation &amp; Worktree Picker" />
               </div>
@@ -177,8 +177,8 @@
           <article class="feature-box">
             <div class="feature-box-content">
               <span class="box-tag">Productivity</span>
-              <h3>Intelligent Task Queue</h3>
-              <p>Stash follow-up tasks without derailing your current session. Use AI prompt polishing to refine loose thoughts into concrete specifications before queuing.</p>
+              <h3>Tasks &amp; Project History</h3>
+              <p>Stash follow-up tasks without derailing your current session, polish prompts with AI, and preserve skill presets for queued work. Reopen recent projects from profile-specific history when it is time to continue.</p>
               <div class="feature-shot-wrap">
                 <img src="assets/screenshots/task-queue-task-card.webp" alt="Task Queue view" loading="lazy" class="box-thumb" data-lightbox="assets/screenshots/task-queue-task-card.webp" data-caption="Task Queue and Polished Prompts" />
               </div>
@@ -189,8 +189,8 @@
           <article class="feature-box">
             <div class="feature-box-content">
               <span class="box-tag">Context</span>
-              <h3>Project &amp; Global Memory</h3>
-              <p>Never repeat your coding standards. Automatically extract and pin project constraints, linter rules, and testing strategies across multi-session lifecycles.</p>
+              <h3>Sessions, Reviews &amp; Memory</h3>
+              <p>Search, resume, branch, move, and organize Pi sessions while durable memory carries useful context forward. Review Devin, Claude Code, and Codex transcripts alongside native agent work.</p>
               <div class="feature-shot-wrap">
                 <img src="assets/screenshots/memory-project.webp" alt="Project Memory Center" loading="lazy" class="box-thumb" data-lightbox="assets/screenshots/memory-project.webp" data-caption="Project Memory System" />
               </div>
@@ -201,20 +201,20 @@
           <article class="feature-box">
             <div class="feature-box-content">
               <span class="box-tag">Multi-Model</span>
-              <h3>Profiles &amp; Key Routing</h3>
-              <p>Switch between OpenAI Codex, Claude, DeepSeek, or local LLMs on the fly. Each profile maintains isolated API keys, proxies, and session histories.</p>
+              <h3>Bring Your Own Provider</h3>
+              <p>Discover models from local endpoints, custom OpenAI-compatible APIs, and Cloudflare Workers AI. Configure image-capable models, inspect authentication status, and keep credentials and proxies isolated by profile.</p>
               <div class="feature-shot-wrap">
                 <img src="assets/screenshots/profiles-provider-settings.webp" alt="Profile Settings" loading="lazy" class="box-thumb" data-lightbox="assets/screenshots/profiles-provider-settings.webp" data-caption="Multi-Provider &amp; Proxy Configuration" />
               </div>
             </div>
           </article>
 
-          <!-- Card 6: Git & Gateways -->
+          <!-- Card 6: PDF tools -->
           <article class="feature-box">
             <div class="feature-box-content">
-              <span class="box-tag">Ecosystem</span>
-              <h3>Gateways &amp; Remote Access</h3>
-              <p>Connect GitHub or Gitea remotes directly to agent actions. Interact remotely with your workstation through secure Feishu and WeChat messaging gateways.</p>
+              <span class="box-tag">Documents</span>
+              <h3>PDF Review &amp; Annotation</h3>
+              <p>Read PDFs with virtualized page rendering, navigation, zoom, and viewport fitting. Draw, highlight, add shapes or text, undo changes, save annotations automatically, and export the annotated result.</p>
               <div class="feature-shot-wrap">
                 <img src="assets/screenshots/settings-git-integration.webp" alt="Git and Gateway Settings" loading="lazy" class="box-thumb" data-lightbox="assets/screenshots/settings-git-integration.webp" data-caption="Git Integrations &amp; Gateway Presets" />
               </div>
@@ -228,20 +228,20 @@
         <div class="section-heading text-center">
           <p class="eyebrow">More to explore</p>
           <h2>Small details that make the workspace useful.</h2>
-          <p class="section-desc">See how sessions, the composer, and the editor fit around the agent conversation.</p>
+          <p class="section-desc">See how sessions, the composer, and document tools fit around the agent conversation.</p>
         </div>
         <div class="cards-grid">
           <article class="feature-box">
-            <div><span class="box-tag">Sessions &amp; skills</span><h3>Start with the right context</h3><p>Search past sessions, choose a workspace, and decide which skills are available to the agent.</p></div>
+            <div><span class="box-tag">Sessions &amp; reviews</span><h3>Start with the right context</h3><p>Search Pi sessions or imported review transcripts, choose a workspace, and decide which skills are available to the agent.</p></div>
             <div class="feature-shot-wrap"><img src="assets/screenshots/sessions-custom-skills.webp" alt="Custom skills selection for a new session" loading="lazy" class="box-thumb" data-lightbox="assets/screenshots/sessions-custom-skills.webp" data-caption="Session and skill selection" /></div>
           </article>
           <article class="feature-box">
-            <div><span class="box-tag">Composer</span><h3>More than a text box</h3><p>Reference files, use workflow commands, polish a prompt, or attach an image without leaving the conversation.</p></div>
-            <div class="feature-shot-wrap"><img src="assets/screenshots/composer-features.webp" alt="Pi WebUI message composer with commands and attachments" loading="lazy" class="box-thumb" data-lightbox="assets/screenshots/composer-features.webp" data-caption="Message composer features" /></div>
+            <div><span class="box-tag">Composer</span><h3>More than a text box</h3><p>Reference files, use Git and session commands, attach images, or polish a prompt while choosing the model and thinking level in context.</p></div>
+            <div class="feature-shot-wrap"><img src="assets/screenshots/composer-features.webp" alt="Pi Cloud message composer with commands and attachments" loading="lazy" class="box-thumb" data-lightbox="assets/screenshots/composer-features.webp" data-caption="Message composer features" /></div>
           </article>
           <article class="feature-box">
-            <div><span class="box-tag">Editor &amp; files</span><h3>Keep the work in view</h3><p>Open referenced files, preview Markdown or images, inspect diffs, and focus the editor when needed.</p></div>
-            <div class="feature-shot-wrap"><img src="assets/screenshots/editor-markdown-preview.webp" alt="Pi WebUI editor with Markdown preview" loading="lazy" class="box-thumb" data-lightbox="assets/screenshots/editor-markdown-preview.webp" data-caption="Editor and Markdown preview" /></div>
+            <div><span class="box-tag">Editor &amp; documents</span><h3>Keep every artifact in view</h3><p>Preview Markdown, HTML, images, archives, and PDFs. Turn Markdown into a PDF, create an annotatable workspace copy, or inspect a code diff without leaving the session.</p></div>
+            <div class="feature-shot-wrap"><img src="assets/screenshots/editor-markdown-preview.webp" alt="Pi Cloud editor with Markdown preview" loading="lazy" class="box-thumb" data-lightbox="assets/screenshots/editor-markdown-preview.webp" data-caption="Editor and Markdown preview" /></div>
           </article>
         </div>
       </section>
@@ -255,52 +255,52 @@
         </div>
         <div class="cards-grid">
           <article class="feature-box">
-            <div><span class="box-tag">Sessions</span><h3>Find and resume</h3><p>Search across session history and continue work from where the conversation stopped.</p></div>
-            <div class="feature-shot-wrap"><img src="assets/screenshots/sessions-search.webp" alt="Session search in Pi WebUI" loading="lazy" class="box-thumb" data-lightbox="assets/screenshots/sessions-search.webp" data-caption="Session search" /></div>
+            <div><span class="box-tag">Sessions</span><h3>Find, resume, and review</h3><p>Search Pi sessions and external Devin, Claude Code, or Codex transcripts, then continue native work from where the conversation stopped.</p></div>
+            <div class="feature-shot-wrap"><img src="assets/screenshots/sessions-search.webp" alt="Session search in Pi Cloud" loading="lazy" class="box-thumb" data-lightbox="assets/screenshots/sessions-search.webp" data-caption="Session search" /></div>
           </article>
           <article class="feature-box">
             <div><span class="box-tag">Task queue</span><h3>A home for unfinished thoughts</h3><p>Keep future work visible without interrupting the session you are currently working in.</p></div>
-            <div class="feature-shot-wrap"><img src="assets/screenshots/task-queue-empty.webp" alt="Empty Pi WebUI task queue" loading="lazy" class="box-thumb" data-lightbox="assets/screenshots/task-queue-empty.webp" data-caption="Empty task queue" /></div>
+            <div class="feature-shot-wrap"><img src="assets/screenshots/task-queue-empty.webp" alt="Empty Pi Cloud task queue" loading="lazy" class="box-thumb" data-lightbox="assets/screenshots/task-queue-empty.webp" data-caption="Empty task queue" /></div>
           </article>
           <article class="feature-box">
             <div><span class="box-tag">Task queue</span><h3>Turn a thought into a task</h3><p>Choose the project, model, skills, and session destination for a new task.</p></div>
-            <div class="feature-shot-wrap"><img src="assets/screenshots/task-queue-new-task.webp" alt="New task dialog in Pi WebUI" loading="lazy" class="box-thumb" data-lightbox="assets/screenshots/task-queue-new-task.webp" data-caption="Create a new task" /></div>
+            <div class="feature-shot-wrap"><img src="assets/screenshots/task-queue-new-task.webp" alt="New task dialog in Pi Cloud" loading="lazy" class="box-thumb" data-lightbox="assets/screenshots/task-queue-new-task.webp" data-caption="Create a new task" /></div>
           </article>
           <article class="feature-box">
             <div><span class="box-tag">Task queue</span><h3>Keep the trail connected</h3><p>Completed work links back to its session and any related GitHub or Gitea issue.</p></div>
             <div class="feature-shot-wrap"><img src="assets/screenshots/task-queue-completed-tasks.webp" alt="Completed tasks with session and issue links" loading="lazy" class="box-thumb" data-lightbox="assets/screenshots/task-queue-completed-tasks.webp" data-caption="Completed tasks" /></div>
           </article>
           <article class="feature-box">
-            <div><span class="box-tag">Profiles</span><h3>Switch operating modes</h3><p>Keep provider-specific environments separated and change profiles without mixing session histories.</p></div>
-            <div class="feature-shot-wrap"><img src="assets/screenshots/profiles-switcher.webp" alt="Pi WebUI agent profile switcher" loading="lazy" class="box-thumb" data-lightbox="assets/screenshots/profiles-switcher.webp" data-caption="Agent profile switcher" /></div>
+            <div><span class="box-tag">Profiles</span><h3>Switch models and providers</h3><p>Keep custom APIs, local models, credentials, proxies, and session histories separated by agent profile.</p></div>
+            <div class="feature-shot-wrap"><img src="assets/screenshots/profiles-switcher.webp" alt="Pi Cloud agent profile switcher" loading="lazy" class="box-thumb" data-lightbox="assets/screenshots/profiles-switcher.webp" data-caption="Agent profile switcher" /></div>
           </article>
           <article class="feature-box">
             <div><span class="box-tag">Profiles</span><h3>Start clean or copy wisely</h3><p>Create a new profile from scratch or copy configuration without bringing along old session history.</p></div>
             <div class="feature-shot-wrap"><img src="assets/screenshots/profiles-create.webp" alt="Create agent profile dialog" loading="lazy" class="box-thumb" data-lightbox="assets/screenshots/profiles-create.webp" data-caption="Create an agent profile" /></div>
           </article>
           <article class="feature-box">
-            <div><span class="box-tag">Editor</span><h3>Make room for the details</h3><p>Maximize the editor for a focused review or editing session, then return to the workspace.</p></div>
-            <div class="feature-shot-wrap"><img src="assets/screenshots/editor-maximized.webp" alt="Pi WebUI maximized editor" loading="lazy" class="box-thumb" data-lightbox="assets/screenshots/editor-maximized.webp" data-caption="Maximized editor" /></div>
+            <div><span class="box-tag">Editor</span><h3>Review code and documents</h3><p>Maximize the editor for split diffs, rich previews, or persistent PDF annotation, then return to the conversation.</p></div>
+            <div class="feature-shot-wrap"><img src="assets/screenshots/editor-maximized.webp" alt="Pi Cloud maximized editor" loading="lazy" class="box-thumb" data-lightbox="assets/screenshots/editor-maximized.webp" data-caption="Maximized editor" /></div>
           </article>
           <article class="feature-box">
-            <div><span class="box-tag">Settings</span><h3>Make it yours</h3><p>Set the everyday defaults that shape the workspace around your habits.</p></div>
-            <div class="feature-shot-wrap"><img src="assets/screenshots/settings-general.webp" alt="General Pi WebUI settings" loading="lazy" class="box-thumb" data-lightbox="assets/screenshots/settings-general.webp" data-caption="General settings" /></div>
+            <div><span class="box-tag">Settings</span><h3>Make it yours</h3><p>Set session defaults, choose a light or dark theme, and shape the workspace around your habits.</p></div>
+            <div class="feature-shot-wrap"><img src="assets/screenshots/settings-general.webp" alt="General Pi Cloud settings" loading="lazy" class="box-thumb" data-lightbox="assets/screenshots/settings-general.webp" data-caption="General settings" /></div>
           </article>
           <article class="feature-box">
             <div><span class="box-tag">Settings</span><h3>Shape the conversation</h3><p>Adjust chat behavior, notifications, and streaming preferences for your workflow.</p></div>
-            <div class="feature-shot-wrap"><img src="assets/screenshots/settings-chat.webp" alt="Pi WebUI chat settings" loading="lazy" class="box-thumb" data-lightbox="assets/screenshots/settings-chat.webp" data-caption="Chat settings" /></div>
+            <div class="feature-shot-wrap"><img src="assets/screenshots/settings-chat.webp" alt="Pi Cloud chat settings" loading="lazy" class="box-thumb" data-lightbox="assets/screenshots/settings-chat.webp" data-caption="Chat settings" /></div>
           </article>
           <article class="feature-box">
             <div><span class="box-tag">Settings</span><h3>Keep your hands moving</h3><p>Review the keyboard shortcuts that make session navigation and editing faster.</p></div>
-            <div class="feature-shot-wrap"><img src="assets/screenshots/settings-keyboard-shortcuts.webp" alt="Pi WebUI keyboard shortcut settings" loading="lazy" class="box-thumb" data-lightbox="assets/screenshots/settings-keyboard-shortcuts.webp" data-caption="Keyboard shortcuts" /></div>
+            <div class="feature-shot-wrap"><img src="assets/screenshots/settings-keyboard-shortcuts.webp" alt="Pi Cloud keyboard shortcut settings" loading="lazy" class="box-thumb" data-lightbox="assets/screenshots/settings-keyboard-shortcuts.webp" data-caption="Keyboard shortcuts" /></div>
           </article>
           <article class="feature-box">
             <div><span class="box-tag">Settings</span><h3>Build focused presets</h3><p>Keep a small, intentional skill set for simple work and richer presets for demanding projects.</p></div>
-            <div class="feature-shot-wrap"><img src="assets/screenshots/settings-skill-presets.webp" alt="Pi WebUI skill presets settings" loading="lazy" class="box-thumb" data-lightbox="assets/screenshots/settings-skill-presets.webp" data-caption="Skill presets" /></div>
+            <div class="feature-shot-wrap"><img src="assets/screenshots/settings-skill-presets.webp" alt="Pi Cloud skill presets settings" loading="lazy" class="box-thumb" data-lightbox="assets/screenshots/settings-skill-presets.webp" data-caption="Skill presets" /></div>
           </article>
           <article class="feature-box">
             <div><span class="box-tag">Gateways</span><h3>Meet your work where it is</h3><p>Configure supported messaging gateways for a focused remote workflow.</p></div>
-            <div class="feature-shot-wrap"><img src="assets/screenshots/settings-gateway.webp" alt="Pi WebUI gateway settings" loading="lazy" class="box-thumb" data-lightbox="assets/screenshots/settings-gateway.webp" data-caption="Gateway settings" /></div>
+            <div class="feature-shot-wrap"><img src="assets/screenshots/settings-gateway.webp" alt="Pi Cloud gateway settings" loading="lazy" class="box-thumb" data-lightbox="assets/screenshots/settings-gateway.webp" data-caption="Gateway settings" /></div>
           </article>
         </div>
       </section>
@@ -309,14 +309,14 @@
       <section id="architecture" class="section-shell arch-section">
         <div class="section-heading text-center">
           <p class="eyebrow">Self-hosted by design</p>
-          <h2>How Pi WebUI fits together</h2>
+          <h2>How Pi Cloud fits together</h2>
           <p class="section-desc">Run the web interface and agent on a machine you control, then connect from the devices you use.</p>
         </div>
         <div class="arch-flow">
           <div class="arch-node">
             <div class="arch-icon">💻</div>
             <h4>Local Workstation</h4>
-            <p>Your repositories, Git worktrees, and shell environments are available on the machine running Pi WebUI.</p>
+            <p>Your repositories, Git worktrees, and shell environments are available on the machine running Pi Cloud.</p>
           </div>
           <div class="arch-connector">→</div>
           <div class="arch-node active-node">
@@ -338,14 +338,14 @@
         <div class="section-heading text-center">
           <p class="eyebrow">A clear mental model</p>
           <h2>One workspace, close to the work.</h2>
-          <p class="section-desc">Pi WebUI brings the parts of an agent workflow together without hiding how the system is run.</p>
+          <p class="section-desc">Pi Cloud brings the parts of an agent workflow together without hiding how the system is run.</p>
         </div>
         <div class="table-wrap">
           <table class="comp-table">
             <thead>
               <tr>
                 <th>Part of the workflow</th>
-                <th class="highlight-col">What Pi WebUI provides</th>
+                <th class="highlight-col">What Pi Cloud provides</th>
                 <th>Where it runs</th>
               </tr>
             </thead>
@@ -353,7 +353,7 @@
               <tr>
                 <td><strong>Agent sessions</strong></td>
                 <td class="highlight-col">Resume conversations and run background tasks</td>
-                <td>Pi WebUI backend</td>
+                <td>Pi Cloud backend</td>
               </tr>
               <tr>
                 <td><strong>Repository work</strong></td>
@@ -363,7 +363,7 @@
               <tr>
                 <td><strong>Long-term context</strong></td>
                 <td class="highlight-col">Keep project and global memories available across sessions</td>
-                <td>Configured Pi WebUI storage</td>
+                <td>Configured Pi Cloud storage</td>
               </tr>
               <tr>
                 <td><strong>Remote use</strong></td>
@@ -383,12 +383,12 @@
             <h2>Give your Pi Agent a permanent cockpit.</h2>
             <p>Install the npm package, configure your credentials, and start the workspace on your own machine.</p>
             <div class="cta-cli">
-              <code>npm install -g @xianzhon/pi-webui && pi-webui</code>
-              <button class="copy-button" type="button" data-copy="npm install -g @xianzhon/pi-webui && pi-webui">Copy</button>
+              <code>npm install -g pi-cloud &amp;&amp; pi-cloud</code>
+              <button class="copy-button" type="button" data-copy="npm install -g pi-cloud &amp;&amp; pi-cloud">Copy</button>
             </div>
             <div class="cta-links">
-              <a class="button button-primary" href="https://github.com/xianzhon/pi-webui#quick-start" target="_blank" rel="noreferrer">Read Quickstart Guide →</a>
-              <a class="button button-secondary" href="https://github.com/xianzhon/pi-webui" target="_blank" rel="noreferrer">Star on GitHub</a>
+              <a class="button button-primary" href="https://github.com/xianzhon/pi-cloud#quick-start" target="_blank" rel="noreferrer">Read Quickstart Guide →</a>
+              <a class="button button-secondary" href="https://github.com/xianzhon/pi-cloud" target="_blank" rel="noreferrer">Star on GitHub</a>
             </div>
           </div>
         </div>
@@ -400,13 +400,13 @@
       <div class="footer-inner">
         <div class="footer-brand">
           <span class="brand-mark">&gt;_</span>
-          <span>Pi WebUI</span>
+          <span>Pi Cloud</span>
           <p class="footer-license">Open source under the Apache-2.0 License.</p>
         </div>
         <div class="footer-links">
-          <a href="https://github.com/xianzhon/pi-webui">GitHub</a>
-          <a href="https://github.com/xianzhon/pi-webui/blob/main/docs/README.md">Manuals</a>
-          <a href="https://github.com/xianzhon/pi-webui/releases">Releases</a>
+          <a href="https://github.com/xianzhon/pi-cloud">GitHub</a>
+          <a href="https://github.com/xianzhon/pi-cloud/blob/main/docs/README.md">Manuals</a>
+          <a href="https://github.com/xianzhon/pi-cloud/releases">Releases</a>
           <a href="#top">Back to top ↑</a>
         </div>
       </div>
